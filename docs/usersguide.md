@@ -6,7 +6,6 @@ last_updated: Dec, 28, 2022
 keywords: "OnlyKey, User's Guide"
 ---
 
-
 ## Start Here - Unpacking OnlyKey {#unpacking}
 
 :::callout
@@ -29,7 +28,9 @@ keywords: "OnlyKey, User's Guide"
 
 [OnlyKey Setup Using OnlyKey App](#app-desktop) (App install required, 5-10 minute setup time)
 
-Prefer a how-to video? Watch one [here](https://vimeo.com/967163806) that demonstrates setting up a new OnlyKey<br>[![How-To: Setup New OnlyKey](/assets/set-password.jpeg)](https://vimeo.com/967163806)
+Prefer a how-to video? Watch one [here](https://vimeo.com/967163806) that demonstrates setting up a new OnlyKey
+
+::: embed https://vimeo.com/967163806
 
 ### OnlyKey Quick Setup {#quick-setup}
 
@@ -38,7 +39,10 @@ Quick setup is an alternative way to set up a new OnlyKey with no apps required.
 :::
 
 :::tip "💡 Pro Tip"
-Prefer a how-to video? Watch one [here](https://vimeo.com/372991865) that demonstrates setting up a new OnlyKey with Quick Setup<br>[![How-To:  Setting up OnlyKey with Quick Setup](/assets/quick-setup.png)](https://vimeo.com/372991865)
+Prefer a how-to video? Watch one [here](https://vimeo.com/372991865) that demonstrates setting up a new OnlyKey with Quick Setup
+
+::: embed https://vimeo.com/372991865
+
 :::
 
 To complete OnlyKey quick setup follow the instructions below:
@@ -58,26 +62,24 @@ OnlyKey will type out instructions for you to follow into the text editor. Follo
 
  ***To use OnlyKey for password management, file encryption, and other two factor authentication methods use the steps below to install the OnlyKey app***.
 
-
-
 ### Install OnlyKey Desktop App {#app-desktop}
 
 :::callout
 **Step 1.** Download installer
 :::
 
+::: tabs
+== tab macOS
+[**Download for macOS**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey.App.5.3.6.dmg)
+== tab Windows
+[**Download for Windows**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey_5.3.6.exe)
+== tab Linux
+[**Download for Linux**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.5.0/OnlyKey_5.5.0_amd64.deb)
 
-[**macOS**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey.App.5.3.6.dmg)
-
-[**Windows**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey_5.3.6.exe)
-
-[**Linux**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.5.0/OnlyKey_5.5.0_amd64.deb)
-
-:::note
-Linux users, if a UDEV rule has not been created previously follow the following instructions here, additionally the OnlyKey app may now be installed via snapcraft - [Linux Guide](/linux)
+If a UDEV rule has not been created previously, follow the instructions [here](/linux). The OnlyKey app may also be installed via snapcraft - [Linux Guide](/linux).
+== tab Chrome OS / Chrome App
+See the [OnlyKey Chrome App](/app#onlykey-chrome-app) section.
 :::
-
-[**Chrome OS / Chrome App**](/app#onlykey-chrome-app)
 
 :::callout
 **Step 2.** Install and launch the app.
@@ -161,7 +163,10 @@ You can also use the Self-destruct PIN if one has been set.
 
 :::tip "💡 Pro Tip"
 Set aside some time to set up accounts as this can be time consuming the first time you set it up. After you configure your profiles once you won't have to do this again unless you add a new account. Think of all the time you will save not having to remember and type usernames, passwords, and getting your phone out to type codes etc. This is a huge time saver in the long run.<br><br>
-Prefer a how-to video? Watch one [here](https://vimeo.com/372894554) that demonstrates setting up a new OnlyKey<br>[![How-To: Setup Accounts and Customize OnlyKey Preferences](/assets/set-password.jpeg)](https://vimeo.com/372894554)
+Prefer a how-to video? Watch one [here](https://vimeo.com/372894554) that demonstrates setting up a new OnlyKey
+
+::: embed https://vimeo.com/372894554
+
 :::
 
 ### Configure Basic Login Info {#all-about-slots}
@@ -419,7 +424,6 @@ After loading next page
    </td>
   </tr>
 </table>
-
 
 :::warning "⚠️ Warning"
 ***NO WEAK PASSWORDS*** - While OnlyKey makes it possible for your accounts to be more secure than remembering passwords or than using a software password manager one thing to remember is that it is up to you to use strong passwords. If you set your password to something like ''Summer2021!'' this is not secure, in fact we recommend using randomly generated strong passwords that cannot be guessed or cracked by a hacker.
@@ -984,7 +988,10 @@ The OnlyKey stores private keys. These private keys are used for three different
   - **[OnlyKey WebCrypt](/webcrypt)** - Provides a way to securely use OnlyKey for OpenPGP in the browser. The Webcrypt app loads everything necessary to encrypt messages and files directly in the local browser without the need to send messages or files over the Internet. Data between [OnlyKey](https://onlykey.io) and the local browser is end-to-end encrypted. This provides encryption everywhere on-the-go and supports macOS, Windows, Linux, Chrome OS, Android, and iPhone (Safari on iOS 13.3+). More information on mobile support [here](/mobile).
 
 :::tip "💡 Pro Tip"
-Watch a video [here](https://vimeo.com/374653109) that demonstrates using OnlyKey WebCrypt for file encryption<br>[![How-To: Use OnlyKey WebCrypt for file encryption](/assets/webcrypt.png)](https://vimeo.com/374653109)
+Watch a video [here](https://vimeo.com/374653109) that demonstrates using OnlyKey WebCrypt for file encryption
+
+::: embed https://vimeo.com/374653109
+
 :::
   
   - **[OnlyKey GPG Agent](/onlykey-agent#gpg-agent-quickstart-guide)** - Provides a way to securely use OnlyKey for OpenPGP on a local computer. Instead of keeping keys on a computer, OnlyKey generates and securely stores your keys off of the computer and you can still easily use GPG to do things like sign emails, git commits, software packages etc.
@@ -1006,7 +1013,10 @@ The Secure Encrypted Backup Anywhere feature allows you to backup OnlyKey on the
 ### Backup With OnlyKey App {#backup-with-onlykey-app}
 
 :::tip "💡 Pro Tip"
-Prefer a how-to video? Watch one [here](https://vimeo.com/967904007) that demonstrates backing up OnlyKey using the OnlyKey App<br>[![How-To: OnlyKey Backup](/assets/backup.png)](https://vimeo.com/967904007)
+Prefer a how-to video? Watch one [here](https://vimeo.com/967904007) that demonstrates backing up OnlyKey using the OnlyKey App
+
+::: embed https://vimeo.com/967904007
+
 :::
 
 :::callout
@@ -1109,7 +1119,6 @@ Android and iOS is supported by using a USB on-the-go (OTG) adapter. For more in
 
 Below is a list of common issues and solutions.
 
-
 <table>
   <tr>
    <td><strong>Issue</strong>
@@ -1154,7 +1163,6 @@ Below is a list of common issues and solutions.
    </td>
   </tr>
 </table>
-
 
 If you have an issue not listed here please reference the online support forum [here.](https://forum.onlykey.io)
 

@@ -15,7 +15,10 @@ OnlyKey Agent is a hardware-based SSH and GPG agent that allows offline cold sto
 SSH is a popular remote access tool that is often used by administrators and with OnlyKey Agent remote access can be passwordless. GPG (or GnuPG) is a versatile OpenPGP tool that is used for encryption and signing. The way OnlyKey Agent works is that the indicator light on OnlyKey will blink purple for a sign request (such as SSH authentication), and will blink turquoise for a decrypt request. To authorize a user must press button (or [challenge code](/usersguide#derived-challenge-mode)) on OnlyKey.
 
 :::tip "💡 Pro Tip"
-Prefer a how-to video? Watch one [here](https://vimeo.com/374479136)<br>[![How-To: Use OnlyKey for Passwordless SSH](/assets/ssh-thumb.png)](https://vimeo.com/374479136)
+Prefer a how-to video? Watch one [here](https://vimeo.com/374479136)
+
+::: embed https://vimeo.com/374479136
+
 :::
 
 You can do things like sign your emails, git commits, and software packages, manage your passwords (with pass and gopass, among others), authenticate web tunnels and file transfers, and more. Since many 3rd party applications already integrate with SSH and GPG you can use those as well.
@@ -57,7 +60,6 @@ $ onlykey-agent identity@myhost -c
 ```
 
 You will be prompted for a challenge code, type this on your OnlyKey to complete log in. If you wish to just require any button press to login, in the OnlyKey App -> Preferences choose to [disable challenge code](/usersguide#derived-challenge-mode) (device must be in config mode to change setting).
-
 
 ### Common SSH Use Cases
 
@@ -131,7 +133,6 @@ The same works for Mercurial (e.g. on [BitBucket](https://confluence.atlassian.c
 
 	$ ssh-shell
 	$ hg push
-
 
 ## GPG Agent Quickstart Guide {#gpg-agent-quickstart-guide}
 
@@ -305,7 +306,6 @@ ssb   nistp256/35F58F26 2017-12-05 [E]
 
 By default OnlyKey will generate a random key that is used to derive an unlimited number of keys for SSH and GPG use. Since each derived key is different based on the identity@myhost provided, it is required to copy the unique public key for each host.
 
-
 i.e.
 ```
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJcNZQFm742/hIf6KvbaApQM1VzoW6L2BHANZ4KgiU0o <ssh://identity@myhost|ed25519>
@@ -397,21 +397,25 @@ If you wish to switch back to your software keys unset GNUPGHOME.
 
 ## Installation
 
-### Windows Install with dependencies
-Currently Windows is not supported directly but may be used with a Linux virtual machine in Windows Subsystem for Linux (WSL 2) by following instructions [here](/wsl) Another alternative is to use [OpenSSH v8.2](/openssh) which supports OnlyKey as a FIDO security key.
-
-### MacOS Install with dependencies
-We recommend installing with [Homebrew](https://brew.sh/).
+::: tabs
+== tab Windows
+Windows is not supported directly, but you can use OnlyKey Agent inside a Linux virtual machine via Windows Subsystem for Linux (WSL 2) by following the instructions [here](/wsl). Another alternative is to use [OpenSSH v8.2](/openssh), which supports OnlyKey as a FIDO security key.
+== tab macOS
+We recommend installing with [Homebrew](https://brew.sh/):
 
 ```
 $ brew install onlykey-agent
 ```
-Alternatively, you can install using PIP
+
+Alternatively, install using pip:
+
 ```
 $ pip3 install onlykey-agent
 ```
+== tab Linux / BSD
+Non-root users in Linux need a udev rule — see [Linux UDEV Rule](/linux).
 
-### Ubuntu Install with dependencies
+#### Ubuntu
 ```
 $ sudo apt update && sudo apt upgrade
 $ sudo apt install python3-pip python3-tk libusb-1.0-0-dev libudev-dev
@@ -421,7 +425,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-### Debian Install with dependencies
+#### Debian
 ```
 $ sudo apt update && sudo apt upgrade
 $ sudo apt install python3-pip python3-tk libusb-1.0-0-dev libudev-dev
@@ -431,7 +435,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-### RedHat Install with dependencies
+#### RedHat
 ```
 $ yum update
 $ yum install python3-pip python3-devel python3-tk libusb-devel libudev-devel \
@@ -442,7 +446,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-### Fedora Install with dependencies
+#### Fedora
 ```
 $ dnf install python3-pip python3-devel python3-tkinter libusb-devel libudev-devel \
               gcc redhat-rpm-config
@@ -452,7 +456,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-### OpenSUSE Install with dependencies
+#### OpenSUSE
 ```
 $ zypper install python3-pip python3-devel python3-tk libusb-1_0-devel libudev-devel
 $ pip3 install onlykey-agent
@@ -460,10 +464,7 @@ $ wget https://raw.githubusercontent.com/trustcrypto/trustcrypto.github.io/pages
 $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
-
-### Linux UDEV Rule
-
-In order for non-root users in Linux to be able to communicate with OnlyKey a udev rule must be created as described [here](/linux).
+:::
 
 ## Roadmap
 

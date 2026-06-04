@@ -12,36 +12,37 @@ OnlyKey-cli - A command line interface to the OnlyKey (Similar functionality to 
 
 ## Installation
 
-### Windows Stand-Alone EXE
-No install is required. Download and run the EXE to open OnlyKey CLI interactive mode or run directly from command line like this:
+::: tabs
+== tab Windows
+**Stand-alone EXE (no install required)** — download and run the EXE to open OnlyKey CLI interactive mode, or run it directly from the command line:
+
 ```
 C:\ onlykey-cli.exe getlabels
 ```
 
-[Download here](https://github.com/trustcrypto/python-onlykey/releases/download/v1.2.9/onlykey-cli.exe)
+[Download the EXE here](https://github.com/trustcrypto/python-onlykey/releases/download/v1.2.9/onlykey-cli.exe)
 
-### Windows Install with dependencies
-1) Python 3.8 and pip3 are required. To setup a Python environment on Windows we recommend Anaconda [https://www.anaconda.com/download/#windows](https://www.anaconda.com/download/#windows)
+**Install with dependencies**
 
-2) From an administrator command prompt run:
+1. Python 3.8 and pip3 are required. To set up a Python environment on Windows we recommend Anaconda: [https://www.anaconda.com/download/#windows](https://www.anaconda.com/download/#windows)
+2. From an administrator command prompt run:
+
 ```
 pip3 install hidapi==0.9.0 onlykey
 ```
 
-You should see a message showing where the executable is installed. This is usually c:\python39\scripts\onlykey-cli.exe
+You should see a message showing where the executable is installed. This is usually `c:\python39\scripts\onlykey-cli.exe`
+== tab macOS
+Python 3.8 and pip3 are required. To set up a Python environment on macOS we recommend Anaconda: [https://www.anaconda.com/download/#macos](https://www.anaconda.com/download/#macos)
 
-### MacOS Install with dependencies
-Python 3.8 and pip3 are required. To setup a Python environment on MacOS we recommend Anaconda [https://www.anaconda.com/download/#macos](https://www.anaconda.com/download/#macos)
 ```
 $ brew install libusb
 $ pip3 install onlykey
 ```
+== tab Linux / BSD
+In order for non-root users in Linux to be able to communicate with OnlyKey, a udev rule must be created as described [here](/linux).
 
-### Linux/BSD Install with dependencies
-
-In order for non-root users in Linux to be able to communicate with OnlyKey a udev rule must be created as described [here](/linux).
-
-#### Ubuntu Install with dependencies
+#### Ubuntu
 ```
 $ sudo apt update && sudo apt upgrade
 $ sudo apt install python3-pip python3-tk libusb-1.0-0-dev libudev-dev
@@ -51,7 +52,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-#### Debian Install with dependencies
+#### Debian
 ```
 $ sudo apt update && sudo apt upgrade
 $ sudo apt install python3-pip python3-tk libusb-1.0-0-dev libudev-dev
@@ -61,7 +62,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-#### RedHat Install with dependencies
+#### RedHat
 ```
 $ yum update
 $ yum install python3-pip python3-devel python3-tk libusb-devel libudev-devel \
@@ -72,7 +73,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-#### Fedora Install with dependencies
+#### Fedora
 ```
 $ dnf install python3-pip python3-devel python3-tkinter libusb-devel libudev-devel \
               gcc redhat-rpm-config
@@ -82,7 +83,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-#### OpenSUSE Install with dependencies
+#### OpenSUSE
 ```
 $ zypper install python3-pip python3-devel python3-tk libusb-1_0-devel libudev-devel
 $ pip3 install onlykey
@@ -91,7 +92,7 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-#### Arch Linux Install with dependencies
+#### Arch Linux
 ```
 $ sudo pacman -Sy git python3-setuptools python3 libusb python3-pip
 $ pip3 install onlykey
@@ -100,9 +101,9 @@ $ sudo cp 49-onlykey.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-#### FreeBSD Install with dependencies
-
-See forum thread [here](https://groups.google.com/d/msg/onlykey/CEYwdXjB508/MCe14p0gAwAJ)
+#### FreeBSD
+See the forum thread [here](https://groups.google.com/d/msg/onlykey/CEYwdXjB508/MCe14p0gAwAJ).
+:::
 
 ## QuickStart
 

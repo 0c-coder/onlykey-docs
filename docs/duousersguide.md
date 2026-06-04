@@ -6,7 +6,6 @@ last_updated: Dec, 28, 2022
 keywords: "OnlyKey, DUO, User's Guide"
 ---
 
-
 ## Start Here - Unpacking OnlyKey DUO {#unpacking}
 
 :::callout
@@ -93,7 +92,9 @@ You can also use the Self-destruct PIN if one has been set.
 
 ## Setting up accounts {#account-setup}
 
-Prefer a how-to video? Watch one [here](https://vimeo.com/967163806) that demonstrates setting up a new OnlyKey<br>[![How-To: Setup New OnlyKey](/assets/set-password.jpeg)](https://vimeo.com/967163806)
+Prefer a how-to video? Watch one [here](https://vimeo.com/967163806) that demonstrates setting up a new OnlyKey
+
+::: embed https://vimeo.com/967163806
 
 ### Configure Basic Login Info {#all-about-slots}
 
@@ -200,7 +201,6 @@ The example configuration shown below would be to set OnlyKey to store our Googl
 OnlyKey types your passwords for you so it will work on any device, even on mobile devices.
 
 ![](/assets/mobile.gif)
-
 
 If you would like to learn more about setting usernames, passwords, and filling custom login forms check out [Set up a Slot (Advanced Login)](#set-up-a-slot-advanced)
 
@@ -384,7 +384,6 @@ Keep in mind that once you write this configuration to OnlyKey you can no longer
 No setup is required to use OnlyKey as a security key. When registering and authenticating OnlyKey as a security key you will see OnlyKey flash blue. To use OnlyKey as a security key follow the instructions given by the website where you wish to register OnlyKey. When using Onlykey as a security key you will see the light flash blue, press any button on the OnlyKey to register or login to a site. While your device is flashing blue typing is disabled in case you also have a slot set up for basic login. 
 
 ![](/assets/fido2.gif)
-
 
 The terminology for security keys can be a bit confusing so here are some quick definitions to make sense of it.
 
@@ -659,7 +658,6 @@ You can change your backup key/passphrase at any time by entering your PIN to pu
 With OnlyKey DUO, if no PIN is set the backup key is locked by default.
 :::
 
-
 ### Configurable Wipe Mode {#configurable-wipe-mode}
 
 Setting wipe mode to "Full Wipe" ensures that not only is your sensitive data wiped when a factory default occurs but also the firmware is wiped. This ensures that no data or meta data such as what version of firmware you had would be accessible to an adversary that steals or otherwise obtains a user's OnlyKey and then performs a factory default. The tradeoff of setting wipe mode to full wipe is that this cannot be changed once set and when a factory default occurs the firmware must be reloaded using the [firmware upgrade guide](/duousersguide#loading-onlykey-firmware). For user's desiring the highest level of security we recommend enabling full wipe.
@@ -761,7 +759,10 @@ The OnlyKey stores private keys. These private keys are used for three different
   - **[OnlyKey WebCrypt](/webcrypt)** - Provides a way to securely use OnlyKey for OpenPGP in the browser. The Webcrypt app loads everything necessary to encrypt messages and files directly in the local browser without the need to send messages or files over the Internet. Data between [OnlyKey](https://onlykey.io) and the local browser is end-to-end encrypted. This provides encryption everywhere on-the-go and supports macOS, Windows, Linux, Chrome OS, Android, and iPhone (Safari on iOS 13.3+). More information on mobile support [here](/mobile).
 
 :::tip "💡 Pro Tip"
-Watch a video [here](https://vimeo.com/374653109) that demonstrates using OnlyKey WebCrypt for file encryption<br>[![How-To: Use OnlyKey WebCrypt for file encryption](/assets/webcrypt.png)](https://vimeo.com/374653109)
+Watch a video [here](https://vimeo.com/374653109) that demonstrates using OnlyKey WebCrypt for file encryption
+
+::: embed https://vimeo.com/374653109
+
 :::
   
   - **[OnlyKey GPG Agent](/onlykey-agent#gpg-agent-quickstart-guide)** - Provides a way to securely use OnlyKey for OpenPGP on a local computer. Instead of keeping keys on a computer, OnlyKey generates and securely stores your keys off of the computer and you can still easily use GPG to do things like sign emails, git commits, software packages etc.
@@ -783,7 +784,10 @@ The Secure Encrypted Backup Anywhere feature allows you to backup OnlyKey on the
 ### Backup With OnlyKey App {#backup-with-onlykey-app}
 
 :::tip "💡 Pro Tip"
-Prefer a how-to video? Watch one [here](https://vimeo.com/967904007) that demonstrates backing up OnlyKey using the OnlyKey App<br>[![How-To: OnlyKey Backup](/assets/backup.png)](https://vimeo.com/967904007)
+Prefer a how-to video? Watch one [here](https://vimeo.com/967904007) that demonstrates backing up OnlyKey using the OnlyKey App
+
+::: embed https://vimeo.com/967904007
+
 :::
 
 :::callout
@@ -863,7 +867,6 @@ There is a tab named Firmware in the app. This may be used to load the latest fi
 You can ensure the integrity of your downloaded file by verifying the checksum. <br>Signed_OnlyKey_3_0_4_STD.txt SHA 256 checksum:<br>
 f895100a2f828b66ec5335fd676ef659daf87d51bfeecca5fb8bf9b7c8e259bd
 :::
-
 
 ## OnlyKey Accessories / Mobile Support {#onlykey-accessories-mobile-support}
 
@@ -1056,7 +1059,6 @@ After loading next page
 
 Below is a list of common issues and solutions.
 
-
 <table>
   <tr>
    <td><strong>Issue</strong>
@@ -1101,7 +1103,6 @@ Below is a list of common issues and solutions.
    </td>
   </tr>
 </table>
-
 
 If you have an issue not listed here please reference the online support forum [here.](https://forum.onlykey.io)
 

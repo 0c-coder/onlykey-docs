@@ -33,21 +33,20 @@ For information on using the app with OnlyKey see the [OnlyKey User's Guide](/us
 **Step 1.** Download installer
 :::
 
-[**macOS**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey.App.5.3.6.dmg)
+::: tabs
+== tab macOS
+[**Download for macOS**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey.App.5.3.6.dmg)
+== tab Windows
+[**Download for Windows**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey_5.3.6.exe)
 
-[**Windows**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey_5.3.6.exe)
+There is also a portable version [here](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey_Portable_5.3.6.exe), which permits using the OnlyKey App in enterprise environments where users may not have admin rights.
+== tab Linux
+[**Download for Linux**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.5.0/OnlyKey_5.5.0_amd64.deb)
 
-:::note
-Windows users, there is a portable version of the app [here](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey_Portable_5.3.6.exe). This permits using the OnlyKey App in enterprise and environments where users may not have admin rights.
+If a UDEV rule has not been created previously, follow the instructions [here](/linux). The OnlyKey app may also be installed via snapcraft - [Linux Guide](/linux).
+== tab ChromeOS / ARM
+See the [OnlyKey Chrome App](/app#onlykey-chrome-app) section below.
 :::
-
-[**Linux**](https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.5.0/OnlyKey_5.5.0_amd64.deb)
-
-:::note
-Linux users, if a UDEV rule has not been created previously follow the following instructions [here](/linux), additionally the OnlyKey app may now be installed via snapcraft - [Linux Guide](/linux)
-:::
-
-[**ChromeOS / ARM**](/app#onlykey-chrome-app)
 
 :::callout
 **Step 2.** Install and launch the app.

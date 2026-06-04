@@ -28,9 +28,11 @@ WebCrypt integrates with services like [Keybase](https://keybase.io/) and [Proto
 
 [Decrypt Messages](https://apps.crp.to/decrypt)
 
-
 :::tip "💡 Pro Tip"
-WebCrypt 3.0 Demo [here](https://vimeo.com/505377733) that demonstrates using OnlyKey WebCrypt for file encryption<br>[![Demo: OnlyKey WebCrypt 3.0 - Now Supporting Multiple Recipients and ProtonMail](/assets/webcrypt3.gif)](https://vimeo.com/505377733)
+WebCrypt 3.0 Demo [here](https://vimeo.com/505377733) that demonstrates using OnlyKey WebCrypt for file encryption
+
+::: embed https://vimeo.com/505377733
+
 :::
 
 ## How it works
@@ -72,8 +74,10 @@ Receiving encrypted files is as easy as putting a custom link in your email sign
 - Change <mark>bobsmith2</mark> in the link to your Keybase user name
 <br><br>
 - Add a **'More info'** link to: https://onlykey.io/pages/webcrypt<br>
-This link provides information to let your sender know what WebCrypt is, why it's secure, and includes a quick 30 second video that will shows how to use it.<br>
-[![How-To: Use OnlyKey WebCrypt](/assets/webcrypt3.png)](https://vimeo.com/374672956)
+This link provides information to let your sender know what WebCrypt is, why it's secure, and includes a quick 30 second video that will shows how to use it.
+
+::: embed https://vimeo.com/374672956
+
 :::
 
 ### See WebCrypt in action {#openpgp-action}
@@ -81,7 +85,10 @@ This link provides information to let your sender know what WebCrypt is, why it'
 After configuring your OnlyKey following [these instructions](/importpgp#generating-keys) you can browse to the [Webcrypt app](https://apps.crp.to/encrypt) to send secure messages/files.
 
 :::tip "💡 Pro Tip"
-Watch a video [here](https://vimeo.com/374653109) that demonstrates using OnlyKey WebCrypt for file encryption<br>[![How-To: Use OnlyKey WebCrypt for file encryption](/assets/webcrypt.png)](https://vimeo.com/374653109)
+Watch a video [here](https://vimeo.com/374653109) that demonstrates using OnlyKey WebCrypt for file encryption
+
+::: embed https://vimeo.com/374653109
+
 :::
 
 #### Step-by-step sending your first message

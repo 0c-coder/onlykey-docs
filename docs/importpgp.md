@@ -59,7 +59,10 @@ Only generate keys on a computer that you trust (i.e. never a publicly accessibl
 :::
 
 :::tip "💡 Pro Tip"
-Prefer a how-to video? Watch one [here](https://vimeo.com/374512727)<br>[![How-To: Generate and load a new OpenPGP key on OnlyKey](/assets/pgp.png)](https://vimeo.com/374512727)
+Prefer a how-to video? Watch one [here](https://vimeo.com/374512727)
+
+::: embed https://vimeo.com/374512727
+
 :::
 
 :::callout
@@ -133,7 +136,6 @@ A great physically secure location is a safe, preferably a fire safe.
 Now all that is needed to start sending encrypted messages is to load the key you generated onto your OnlyKey.
 
 [***Proceed to Loading Keys below***](#loading-keys)
-
 
 #### Generate OpenPGP Key Using GPG {#generating-keys-gpg}
 
@@ -214,7 +216,6 @@ generator a better chance to gain enough entropy.
 ```
 
 Your generated key details should be displayed
-
 
 :::callout
 **Step 2.** Use GPG via terminal to export secret OpenPGP key:

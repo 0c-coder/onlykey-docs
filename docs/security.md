@@ -110,7 +110,17 @@ OnlyKey backup files are encrypted and without the passphrase or PGP key they ca
 
 ### Reflashing the OnlyKey with malicious firmware
 
-OnlyKey may only load firmware signed by CryptoTrust LLC. Developer model devices may be purchased to load test firmware.
+OnlyKey may only load firmware signed by CryptoTrust LLC. Developer model devices may be purchased to load test firmware. Firmware integrity is also verified every time the device boots; if verification fails the device is wiped and signed firmware must be reloaded.
+
+```mermaid
+flowchart TD
+  A[Device powers on] --> B{Firmware signature<br/>valid? signed by CryptoTrust}
+  B -- No --> F[Wipe device and require<br/>signed firmware reload]
+  B -- Yes --> C[Verify firmware integrity<br/>SHA-512]
+  C --> D{Integrity OK?}
+  D -- No --> F
+  D -- Yes --> E[Boot normally]
+```
 
 ### Hardware attacks
 
