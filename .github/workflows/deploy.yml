@@ -1,0 +1,67 @@
+name: Deploy docmd site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; cancel in-progress runs for the same ref.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Determine base path
+        id: base
+        run: |
+          REPO="${{ github.event.repository.name }}"
+          # User/org pages (<name>.github.io) serve at the domain root; project
+          # pages serve under /<repo>/. docmd reads this via DOCMD_PROJECT_PREFIX.
+          if [[ "$REPO" == *.github.io ]]; then
+            echo "prefix=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "prefix=/$REPO/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        env:
+          DOCMD_PROJECT_PREFIX: ${{ steps.base.outputs.prefix }}
+        run: npx @docmd/core build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
