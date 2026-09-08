@@ -26,12 +26,6 @@ Prefer a how-to video? Watch one [here](https://vimeo.com/967163806) that demons
 
 ::: embed https://vimeo.com/967163806
 
-### OnlyKey Quick Setup {#quick-setup}
-
-:::callout
-Quick setup - holding a button on a new OnlyKey and having it type a setup walkthrough as a keyboard - was removed in firmware 3.1.0. New devices are set up with the [OnlyKey App](#onlykey-setup), which sets all three PINs and the backup passphrase. Devices set up with quick setup on earlier firmware are unaffected.
-:::
-
 ### Install OnlyKey Desktop App {#app-desktop}
 
 :::callout

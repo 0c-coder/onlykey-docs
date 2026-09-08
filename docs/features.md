@@ -153,7 +153,7 @@ OnlyKey is the world's first device to allow changing your keyboard layout on th
 
 #### Unconfigured OnlyKey {#uninitialized-onlykey}
 
-*   An unconfigured OnlyKey does nothing on button presses; set it up with the [OnlyKey App](/usersguide#onlykey-setup). (Firmware before 3.1.0 started the removed keyboard quick setup here.)
+*   An unconfigured OnlyKey does nothing on button presses; set it up with the [OnlyKey App](/usersguide#onlykey-setup).
 
 #### Locked OnlyKey {#locked-onlykey}
 
