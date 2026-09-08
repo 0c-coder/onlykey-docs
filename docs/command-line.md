@@ -211,11 +211,6 @@ Change the OnlyKey's button touch sensitivity.
 WARNING: Setting button's touch sensitivity lower than 5 is not recommended as this could result in inadvertent button press.
 2 = highest sensitivity; 100 = lowest sensitivity [12 = default]
 
-#### 2ndprofilemode [num]
-Set during init (Initial Configuration) to set 2nd profile type. 1 = standard is the only supported value.
-Value 2 (plausible deniability) is retired as of firmware 3.1.0 and is refused; see the
-[Plausible Deniability Setup Guide](/pdguide) for what happens to devices that already use it.
-
 #### storedkeymode [num]
 User input required to use a stored key (RSA1-4, ECC1-16) for SSH/PGP
 0 = Challenge Code Required; 1 = Button Press Required (default); 2 = No Press (only on firmware built with `OK_ALLOW_NO_PRESS`, refused otherwise)

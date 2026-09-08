@@ -8,7 +8,7 @@ keywords: OnlyKey, International Travel Edition, Plausible Deniability
 
 ## Plausible deniability is retired
 
-The plausible deniability option for the second profile stored that profile's slots without encryption so that the device could be presented as having only one profile. As of firmware 3.1.0 it can no longer be selected: the OnlyKey App setup no longer offers it, and `onlykey-cli 2ndprofilemode 2` is refused with `Error plausible deniability profile is no longer supported`. Both profiles are encrypted under their PINs.
+The plausible deniability option for the second profile stored that profile's slots without encryption so that the device could be presented as having only one profile. As of firmware 3.1.0 it can no longer be selected: the second profile type setting is gone from the OnlyKey App setup and from `onlykey-cli` (`2ndprofilemode` has been removed), and the firmware refuses the value if an older app sends it. Both profiles are encrypted under their PINs.
 
 Reasons for retiring it: profile 2's usernames, passwords and URLs were stored in the clear on the device; the "no second profile" story does not hold against an adversary who can image the chip; and every profile-aware feature had to be tested twice. Users who need to travel without secrets on the device should take an [encrypted backup](/usersguide#backup-key-mode), wipe the device with the self-destruct PIN, and restore afterwards.
 
