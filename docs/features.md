@@ -72,7 +72,7 @@ In a pinch and want to wipe your OnlyKey? Enter your self-destruct PIN to wipe E
 *   [What does entering the self destruct PIN do?](/faq#what-does-entering-the-self-destruct-pin-do)
 
 ### PLAUSIBLE DENIABILITY FEATURE (RETIRED)
-The plausible deniability second profile and the International Travel Edition firmware are retired as of firmware 3.1.0. Every profile is encrypted under its PIN; there is one firmware edition. See the [Plausible Deniability Setup Guide](/pdguide) for what changes on devices that already use it.
+The plausible deniability second profile is retired as of firmware 3.1.0; every profile is encrypted under its PIN. See the [Plausible Deniability Setup Guide](/pdguide) for what changes on devices that already use it.
 
 ### ENCRYPTED BACKUP ANYWHERE
 OnlyKey types out the encrypted backup so it works anywhere independent of apps. Save the encrypted backup to a file or email it to yourself.

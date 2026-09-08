@@ -38,7 +38,6 @@ module.exports = defineConfig({
         { title: 'Works with OnlyKey', path: '/workswithonlykey' },
         { title: 'Upgrade Guide', path: '/upgradeguide' },
         { title: 'Legacy Firmware Upgrade Guide', path: '/legacyupgradeguide' },
-        { title: 'International Travel Edition Guide', path: '/ite' },
         { title: 'Plausible Deniability Setup Guide', path: '/pdguide' },
         { title: 'Windows Active Directory Guide', path: '/activedirectory' },
         { title: 'Linux - Using OnlyKey with Linux', path: '/linux' },
