@@ -81,7 +81,7 @@ There are a variety of hardware and software tokens out there. Some support FIDO
 
 ## What specifically are the differences between the Standard Edition firmware and the International Travel Edition firmware?
 
-The International Travel Edition firmware is essentially a feature limited version of the OnlyKey. It is a fully functional password manager but does not utilize encryption and may be usable in countries where encryption is banned/restricted. More information [here](/ite).
+The International Travel Edition firmware was a feature limited version of the OnlyKey: a password manager that did not use encryption, for countries where encryption is banned or restricted. It is retired as of firmware 3.1.0 and there is one firmware edition. More information, including what to do with a device still running it, [here](/ite).
 
 ## What does entering the self destruct PIN do?
 

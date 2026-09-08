@@ -177,7 +177,7 @@ Many journalists may travel and may have to make do with whatever internet conne
 It is often the case that secure solutions are not adopted not because of lack of availability but that they require considerable technical skills. For example, installing smart card software may require command line utilities and a high level of technical proficiency. At-risk communities may not have the technical proficiency to do this, with OnlyKey there are no commands necessary, setup is as easy as following step by step directions to generate a private key on Keybase and load onto the OnlyKey. This opens up the solution to a much wider range of at-risk communities.
 
 ### Plausible Deniability
-Human rights activists and journalists may reside in or travel to countries with encryption bans or mandatory key disclosure. OnlyKey already has a feature for this to provide plausible deniability. Full details of this feature are available [here](/pdguide).
+The plausible deniability second profile is retired as of firmware 3.1.0; see [here](/pdguide).
 
 ## Technical Specs
 

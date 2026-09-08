@@ -576,13 +576,17 @@ Note: These additional keyboard layouts are available but cannot currently be se
 
 OnlyKey supports automatic generation of keys that may be used for SSH and PGP/GPG with the [OnlyKey Agent](/onlykey-agent).
 
-The default setting is "Challenge Code Required" which requires a 3 digit challenge code to be entered on OnlyKey to perform SSH or PGP/GPG operation. This is great for security but for some users a more convenient approach may be preferred. With "Button Press Required", a physical press on any key is all that is required to perform the operation.
+This setting chooses how you confirm each use of a derived key. Since firmware 3.1.0 the default is **Button Press Required**: a physical press on any of the three buttons completes the operation. **Challenge Code Required** asks for a 3 digit code instead (the agent prints the code; on a DUO each digit is 1-3); it is the stronger choice when the host might issue requests you did not initiate. A third value, **No Press**, exists for unattended use but is only honoured by firmware built with `OK_ALLOW_NO_PRESS`; production firmware refuses it. The setting can only be changed with the device in config mode, and the key itself never depends on it.
 
 ### Stored Key User Input Mode {#stored-challenge-mode}
 
 OnlyKey supports [import of existing OpenPGP keys](/importpgp#loading-keys) using the [OnlyKey app](/app). These keys once imported are securely stored in OnlyKey hardware and may be used to perform SSH or PGP/GPG operations with the [OnlyKey Agent](/onlykey-agent) or in the browser with the [OnlyKey WebCrypt](/webcrypt).
 
-By default, you must enter a 3 digit challenge code on OnlyKey to perform SSH or PGP/GPG operation. If a more convenient approach is preferred "Button Press Required" may be set so that a physical press on any key is all that is required.
+The same three choices as the derived key setting apply, independently: Challenge Code Required, Button Press Required (default since firmware 3.1.0) and No Press (development firmware only). Config mode is required to change it.
+
+### Web Derived Key User Input Mode {#web-derive-mode}
+
+Browser apps at [onlyagent.app](https://onlyagent.app) and the `age-plugin-onlykey` command line tool can derive an X25519 or X-Wing (post-quantum hybrid) key from a label you choose; the device never stores the key and the same label always yields the same key, in the browser and on the command line. This setting chooses how those derivations are confirmed: Challenge Code Required (the page or tool shows the 3 digit code), Button Press Required (default) or No Press. It is set from the OnlyKey App preferences or `onlykey-cli webderivemode`, in config mode. As with the other two settings, changing it never changes the derived key, so files encrypted to a label always decrypt.
 
 ### HMAC Mode {#hmac-mode}
 

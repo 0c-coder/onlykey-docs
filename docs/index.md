@@ -80,7 +80,7 @@ The Knowledge Base contains guides and information for using OnlyKey in specific
 
 **[Works with OnlyKey](/workswithonlykey)** - A list of applications and things that work with OnlyKey
 
-**[International Travel Edition Guide](/ite)** - Follow this guide to use the International Travel Edition OnlyKey.
+**[International Travel Edition Guide](/ite)** - Retired as of firmware 3.1.0; the guide explains what to do with a device running it.
 
-**[Plausible Deniability Setup Guide](/pdguide)** - Follow this guide to use the plausible deniability feature of OnlyKey
+**[Plausible Deniability Setup Guide](/pdguide)** - Retired as of firmware 3.1.0; the guide explains how existing plausible deniability profiles are migrated.
 

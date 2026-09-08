@@ -131,6 +131,12 @@ Displays the version of the app
 #### fwversion
 Displays the version of the OnlyKey firmware
 
+#### capabilities
+Asks the firmware what it supports (firmware 3.1.0 or later): firmware version and commit
+hashes, protocol version, supported key types, build flags (PQC, DUO, debug build, whether the
+"no press" user input mode is compiled in) and the user input modes each of derivedkeymode /
+storedkeymode / webderivemode accepts. Older firmware is reported as not supporting the report.
+
 #### wink
 OnlyKey flashes blue (winks), may be used for visual confirmation of connectivity
 
@@ -206,17 +212,27 @@ WARNING: Setting button's touch sensitivity lower than 5 is not recommended as t
 2 = highest sensitivity; 100 = lowest sensitivity [12 = default]
 
 #### 2ndprofilemode [num]
-Set during init (Initial Configuration) to set 2nd profile type 1 = standard (default); 2 = plausible deniability
+Set during init (Initial Configuration) to set 2nd profile type. 1 = standard is the only supported value.
+Value 2 (plausible deniability) is retired as of firmware 3.1.0 and is refused; see the
+[Plausible Deniability Setup Guide](/pdguide) for what happens to devices that already use it.
 
 #### storedkeymode [num]
-Enable or disable challenge for stored keys (SSH/PGP)
-0 = Challenge Code Required (default); 1 = Button Press Required
+User input required to use a stored key (RSA1-4, ECC1-16) for SSH/PGP
+0 = Challenge Code Required; 1 = Button Press Required (default); 2 = No Press (only on firmware built with `OK_ALLOW_NO_PRESS`, refused otherwise)
+Device must be in config mode to change this setting.
 [More info](/usersguide#stored-challenge-mode)
 
 #### derivedkeymode [num]
-Enable or disable challenge for stored keys (SSH/PGP)
-0 = Challenge Code Required (default); 1 = Button Press Required
+User input required to use a derived key (OnlyKey Agent SSH/PGP identities)
+0 = Challenge Code Required; 1 = Button Press Required (default); 2 = No Press (only on firmware built with `OK_ALLOW_NO_PRESS`, refused otherwise)
+Device must be in config mode to change this setting.
 [More info](/usersguide#derived-challenge-mode)
+
+#### webderivemode [num]
+User input required to use a web derived key (keys derived per label for the browser apps at onlyagent.app and for `age-plugin-onlykey`, X25519 and X-Wing)
+0 = Challenge Code Required; 1 = Button Press Required (default); 2 = No Press
+Device must be in config mode to change this setting. The key itself never depends on this setting - a file encrypted to a label always decrypts regardless of how the user confirms.
+[More info](/usersguide#web-derive-mode)
 
 #### hmackeymode [num]
 Enable or disable button press for HMAC challenge-response
@@ -228,15 +244,13 @@ Enable or disable button press for HMAC challenge-response
 WARNING - Once set to "Locked" this cannot be changed unless a factory reset occurs.
 [More info](/usersguide#backup-key-mode)
 
-#### sysadminmode
-Enable or disable challenge for stored keys (SSH/PGP)
-0 = Challenge Code Required (default); 1 = Button Press Required
-[More info](/usersguide#derived-challenge-mode)
+#### sysadminmode [num]
+Enable or disable sysadmin mode (modifier keys in slots). Device must be in config mode to change this setting.
+[More info](/usersguide#sysadmin-mode)
 
-#### lockbutton
-Enable or disable challenge for stored keys (SSH/PGP)
-0 = Challenge Code Required (default); 1 = Button Press Required
-[More info](/usersguide#derived-challenge-mode)
+#### lockbutton [num]
+Set which button locks the device (per profile).
+[More info](/usersguide#configurable-lock-button)
 
 ### Slot Config Options
 
@@ -271,9 +285,12 @@ Sets raw private keys and key labels, to set PEM format keys use the OnlyKey App
   - [key slot] must be key number RSA1 - RSA4, ECC1 - ECC16, HMAC1 - HMAC2
   - [type] must be one of the following:
     - label - set to have a descriptive key label i.e. My GPG signing key
-    - x - X25519 Key Type (32 bytes)
+    - x - Ed25519 Key Type (32 bytes, signing)
     - n - NIST256P1 Key Type (32 bytes)
     - s - SECP256K1 Key Type (32 bytes)
+    - c - X25519 (Curve25519) Key Type (32 bytes, decryption only)
+    - m - ML-KEM-768 seed (64 bytes, decryption only, firmware 3.1.0+)
+    - w - X-Wing seed (32 bytes, decryption only, firmware 3.1.0+)
     - 2 - RSA Key Type 2048bits (256 bytes)
     - 4 - RSA Key Type 4096bits (512 bytes)
     - h - HMAC Key Type (20 bytes)
@@ -287,9 +304,12 @@ Sets raw private keys and key labels, to set PEM format keys use the OnlyKey App
 Generates random private key on device
   - [key slot] must be key number ECC1 - ECC16 (only ECC keys supported)
   - [type] must be one of the following:
-    - x - X25519 Key Type (32 bytes)
-    - n - NIST256P1 Key Type (32 bytes)
-    - s - SECP256K1 Key Type (32 bytes)
+    - x - Ed25519 Key Type
+    - n - NIST256P1 Key Type
+    - s - SECP256K1 Key Type
+    - c - X25519 (Curve25519) Key Type
+    - m - ML-KEM-768 Key Type (firmware 3.1.0+)
+    - w - X-Wing Key Type (firmware 3.1.0+)
   - [features] must be one of the following:
     - s - Use for signing
     - d - Use for decryption

@@ -59,7 +59,7 @@ Cut and paste the whole string into your server ~/.ssh/authorized_keys file, you
 $ onlykey-agent identity@myhost -c
 ```
 
-You will be prompted for a challenge code, type this on your OnlyKey to complete log in. If you wish to just require any button press to login, in the OnlyKey App -> Preferences choose to [disable challenge code](/usersguide#derived-challenge-mode) (device must be in config mode to change setting).
+Press any button on your OnlyKey to complete log in (the default since firmware 3.1.0). If your OnlyKey is set to [Challenge Code Required](/usersguide#derived-challenge-mode) the agent prints a 3 digit code instead; type it on the OnlyKey. The setting is changed in the OnlyKey App -> Preferences with the device in config mode.
 
 ### Common SSH Use Cases
 
@@ -716,8 +716,12 @@ onlykey-agent user@host -e rsa -sk RSA2
 
 ### Setting Derived Key User Input Mode {#setting-derived-key-user-input-mode}
 
-Currently it is not possible to display the 3 digit challenge code to user through GPG. This feature is on the roadmap. To use derived keys with GPG go to preferences in the OnlyKey app and set 'Derived Key User Input Mode' to 'Button Press Required'.
+Since firmware 3.1.0 the default is 'Button Press Required', which is what GPG needs: GPG cannot display the 3 digit challenge code. If you changed the setting to 'Challenge Code Required', set it back in the OnlyKey app preferences (config mode) before using derived keys with GPG.
 
 ### Setting Stored Key User Input Mode {#setting-stored-key-user-input-mode}
 
-Currently it is not possible to display the 3 digit challenge code to user through GPG. This feature is on the roadmap. To use derived keys with GPG go to preferences in the OnlyKey app and set 'Stored Key User Input Mode' to 'Button Press Required'.
+As above: 'Button Press Required' is the default and is required for GPG use of stored keys.
+
+### Derived key versions {#derived-key-versions}
+
+Derived SSH/GPG identities come from a key generation function on the device. Firmware 3.1.0 adds a second version of that function (HKDF-SHA256) alongside the released one; existing identities are unaffected and remain the default. To create identities with the new derivation, pass `--skey derived-v2` (and `--dkey derived-v2` for GPG) to `onlykey-agent` / `onlykey-gpg`, or set `--skey-slot=derived-v2` in `run-agent.sh`. The two versions produce different keys for the same identity string, so pick one per identity and keep it.

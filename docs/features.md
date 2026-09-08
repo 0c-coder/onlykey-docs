@@ -71,10 +71,8 @@ In a pinch and want to wipe your OnlyKey? Enter your self-destruct PIN to wipe E
 
 *   [What does entering the self destruct PIN do?](/faq#what-does-entering-the-self-destruct-pin-do)
 
-### PLAUSIBLE DENIABILITY FEATURE
-The first and only hardware solution where only you hold the keys + no proof there even are keys! Travel abroad without having to give up your encryption keys/passwords.
-
-*   [International Travel Edition Guide](/ite)
+### PLAUSIBLE DENIABILITY FEATURE (RETIRED)
+The plausible deniability second profile and the International Travel Edition firmware are retired as of firmware 3.1.0. Every profile is encrypted under its PIN; there is one firmware edition. See the [Plausible Deniability Setup Guide](/pdguide) for what changes on devices that already use it.
 
 ### ENCRYPTED BACKUP ANYWHERE
 OnlyKey types out the encrypted backup so it works anywhere independent of apps. Save the encrypted backup to a file or email it to yourself.
@@ -155,9 +153,7 @@ OnlyKey is the world's first device to allow changing your keyboard layout on th
 
 #### Unconfigured OnlyKey {#uninitialized-onlykey}
 
-*   Hold button #3 down for 5+ seconds to start quick setup - See [OnlyKey Quick Setup](/usersguide#quick-setup) for more information.
-*   Hold button #1 down for 5+ seconds to start quick setup in manual mode.
-*   Hold button #2 down for 5+ seconds to start quick setup in auto mode.
+*   An unconfigured OnlyKey does nothing on button presses; set it up with the [OnlyKey App](/usersguide#onlykey-setup). (Firmware before 3.1.0 started the removed keyboard quick setup here.)
 
 #### Locked OnlyKey {#locked-onlykey}
 

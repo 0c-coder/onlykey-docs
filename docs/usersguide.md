@@ -28,26 +28,9 @@ Prefer a how-to video? Watch one [here](https://vimeo.com/967163806) that demons
 
 ### OnlyKey Quick Setup {#quick-setup}
 
-:::warning "⚠️ Warning"
-Quick setup is an alternative way to set up a new OnlyKey with no apps required. However, a computer with a US layout keyboard is required and to take advantage of many of the OnlyKey features the OnlyKey app is required.
-:::
-
-To complete OnlyKey quick setup follow the instructions below:
-
-- Open a text editor such as Notepad (Windows) or TextEdit (Mac) on a trusted computer
-- Click inside the text editor
-- Insert OnlyKey into the USB port on your computer
-- Hold button #3 on your OnlyKey down for 5+ seconds and then release
-
 :::callout
-OnlyKey will type out instructions for you to follow into the text editor. Follow these instructions to set PINs on OnlyKey and a backup passphrase. You can choose to have OnlyKey automatically generate random PINs or set PINs yourself. When setting a PIN keep in mind that remembering a pattern may be easier than remembering numbers.
+Quick setup - holding a button on a new OnlyKey and having it type a setup walkthrough as a keyboard - was removed in firmware 3.1.0. New devices are set up with the [OnlyKey App](#onlykey-setup), which sets all three PINs and the backup passphrase. Devices set up with quick setup on earlier firmware are unaffected.
 :::
-
-- When you are complete the quick setup you will see the text 'SETUP COMPLETE, DELETE THIS TEXT'
-- Make sure you have carefully written down your PINs and backup passphrase and store this in a secure location
-- When finished enter your PIN onto OnlyKey to start using your new device, OnlyKey is ready for use as a security key (FIDO2/U2F) and for challenge-response
-
- ***To use OnlyKey for password management, file encryption, and other two factor authentication methods use the steps below to install the OnlyKey app***.
 
 ### Install OnlyKey Desktop App {#app-desktop}
 
@@ -82,7 +65,7 @@ As you use the OnlyKey app you can hover over icons for tooltips and click on ic
 
 ### OnlyKey Setup Using OnlyKey App {#onlykey-setup}
 
-If you have already setup OnlyKey using quick setup proceed to [Account Setup](#account-setup)
+If you have already set up OnlyKey proceed to [Account Setup](#account-setup)
 
 ::: steps
 1. Insert OnlyKey and select [Next] to get started.
@@ -786,13 +769,17 @@ Note: These additional keyboard layouts are available but cannot currently be se
 
 OnlyKey supports automatic generation of keys that may be used for SSH and PGP/GPG with the [OnlyKey Agent](/onlykey-agent).
 
-The default setting is "Challenge Code Required" which requires a 3 digit challenge code to be entered on OnlyKey to perform SSH or PGP/GPG operation. This is great for security but for some users a more convenient approach may be preferred. With "Button Press Required", a physical press on any key is all that is required to perform the operation.
+This setting chooses how you confirm each use of a derived key. Since firmware 3.1.0 the default is **Button Press Required**: a physical press on any button completes the operation. **Challenge Code Required** asks for a 3 digit code instead (the agent prints the code); it is the stronger choice when the host might issue requests you did not initiate. A third value, **No Press**, exists for unattended use but is only honoured by firmware built with `OK_ALLOW_NO_PRESS`; production firmware refuses it. The setting can only be changed with the device in config mode, and the key itself never depends on it.
 
 ### Stored Key User Input Mode {#stored-challenge-mode}
 
 OnlyKey supports [import of existing OpenPGP keys](/importpgp#loading-keys) using the [OnlyKey app](/app). These keys once imported are securely stored in OnlyKey hardware and may be used to perform SSH or PGP/GPG operations with the [OnlyKey Agent](/onlykey-agent) or in the browser with the [OnlyKey WebCrypt](/webcrypt).
 
-By default, you must enter a 3 digit challenge code on OnlyKey to perform SSH or PGP/GPG operation. If a more convenient approach is preferred "Button Press Required" may be set so that a physical press on any key is all that is required.
+The same three choices as the derived key setting apply, independently: Challenge Code Required, Button Press Required (default since firmware 3.1.0) and No Press (development firmware only). Config mode is required to change it.
+
+### Web Derived Key User Input Mode {#web-derive-mode}
+
+Browser apps at [onlyagent.app](https://onlyagent.app) and the `age-plugin-onlykey` command line tool can derive an X25519 or X-Wing (post-quantum hybrid) key from a label you choose; the device never stores the key and the same label always yields the same key, in the browser and on the command line. This setting chooses how those derivations are confirmed: Challenge Code Required (the page or tool shows the 3 digit code), Button Press Required (default) or No Press. It is set from the OnlyKey App preferences or `onlykey-cli webderivemode`, in config mode. As with the other two settings, changing it never changes the derived key, so files encrypted to a label always decrypt.
 
 ### HMAC Mode {#hmac-mode}
 

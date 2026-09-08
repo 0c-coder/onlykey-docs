@@ -1,94 +1,31 @@
 ---
 title: Plausible Deniability Setup Guide
-description: Follow this guide to use the plausible deniability feature of OnlyKey
+description: The plausible deniability second profile is retired; how existing profiles are migrated
 slug: pdguide
-last_updated: Oct, 5, 2020
+last_updated: September, 7, 2026
 keywords: OnlyKey, International Travel Edition, Plausible Deniability
 ---
 
-## About Plausible Deniability
+## Plausible deniability is retired
 
-Before setting up plausible deniability read the International Travel Edition Guide [here](/ite). Once enabled, an OnlyKey with the Standard Edition firmware that is in plausible deniability mode is identical in functionality to an OnlyKey with the International Travel Edition (ITE) firmware. Since the ITE firmware has only one profile and does not utilize any data encryption a user may if forced to unlock their OnlyKey, unlock the plausible deniability profile. It is then plausible that the user's OnlyKey only has this one profile (the standard profile essentially becomes a hidden profile), and it is plausible that the user is not in possession of a data encryption device (useful where encryption my be banned as the ITE firmware does not encrypt any data).
+The plausible deniability option for the second profile stored that profile's slots without encryption so that the device could be presented as having only one profile. As of firmware 3.1.0 it can no longer be selected: the OnlyKey App setup no longer offers it, and `onlykey-cli 2ndprofilemode 2` is refused with `Error plausible deniability profile is no longer supported`. Both profiles are encrypted under their PINs.
 
-## Steps to Setup Plausible Deniability
+Reasons for retiring it: profile 2's usernames, passwords and URLs were stored in the clear on the device; the "no second profile" story does not hold against an adversary who can image the chip; and every profile-aware feature had to be tested twice. Users who need to travel without secrets on the device should take an [encrypted backup](/usersguide#backup-key-mode), wipe the device with the self-destruct PIN, and restore afterwards.
 
-:::note
-Before getting started make sure you have OnlyKey firmware Beta 7 or later and the OnlyKey app is installed. OnlyKey must be in a factory default state to set up a plausible deniability profile.
-:::
+## If your OnlyKey already has a plausible deniability second profile
 
-:::callout
-**Step 1.** Select the Advanced checkbox and then select [Next] to get started.
-:::
+When you load firmware 3.1.0 or later, the device converts the profile the first time you unlock **profile 1**:
 
-![](/assets/ite1.png)
+1. Load the new firmware and enter your **primary** PIN once. The conversion runs during that unlock: profile 2's slot data is encrypted, its TOTP and challenge-response keys are re-keyed, and the second profile becomes a standard second profile. On a debug build the serial console prints `Migrating plausible-deniability profile 2 to a standard profile` and `Profile 2 migration complete`.
+2. From then on your second PIN unlocks profile 2 exactly as before, with the same slot contents.
 
-:::callout
-**Step 2.** Enter a PIN code, check the disclaimer box, and select [Next].
-:::
+Until that first primary-PIN unlock, the second PIN will **not** unlock profile 2 on the new firmware. If you cannot unlock profile 1, load the previous firmware, and everything is as it was.
 
-![](/assets/ite2.png)
+If you never set a second PIN, nothing is converted and the device works as a one-profile device.
 
-:::callout
-**Step 3.** Re-enter PIN code, and select [Next].
-:::
+Support for reading unconverted plausible deniability profiles will be removed in the release after 3.1.0. Devices that skip 3.1.0 must install it (and unlock profile 1 once) before going further.
 
-:::callout
-**Step 4.** Enter a PIN code for second profile, check the disclaimer box, check the Plausible Deniability Profile radio button, and select [Next].
-:::
+## Related
 
-![](/assets/ite4.png)
-
-:::callout
-**Step 5.** If you wish to set a self-destruct PIN enter a PIN code, check the disclaimer box, and select [Next].
-:::
-
-![](/assets/ite5.png)
-
-:::callout
-**Step 6.** Re-enter PIN code, and select [Next].
-:::
-
-:::callout
-**Step 7.** Follow the instructions to enter a Backup Passphrase and select [Next].
-:::
-
-![](/assets/setup7-2.png)
-
-:::callout
-**Step 8.** If you have an OnlyKey backup to restore, select [Choose File] and select your OnlyKey backup file and then select [Next] to load it onto your OnlyKey. If you do not have a backup just select [Next] to complete the setup.
-:::
-
-![](/assets/setup10.png)
-
-:::note
-Since plausible deniability mode does not support encryption, if accounts in your second profile of your backup have U2F or Yubikey 2FA set this will not be restored. TOTP mode will work in plausible deniability mode.
-:::
-
-:::callout
-**Step 9.** Your device will now automatically reboot. Enter the PIN for you first profile to unlock OnlyKey.
-:::
-
-:::callout
-**Step 10.** Select [Preferences] from the top menu and then click [Set Wipe Mode]. Full wipe will completely erase both the OnlyKey data and firmware in the event of a factory default. This is an important step as if this is not set it is possible to determine which firmware edition is loaded after doing a factory default, more information [here](/usersguide#configurable-wipe-mode)
-:::
-
-![](/assets/pref.png)
-
-## Plausible Deniability FAQ
-
-Q - Is it believable that my OnlyKey only has one profile (only 12 slots used)?<br>
-A - We sell quite a few [International Travel Edition (ITE) Onlykeys](https://onlykey.io/products/onlykey-international-travel-edition-w-stealth-black-case?variant=8661476737068) so yes it is believable that you are using one of these. It is also believable that even if you purchased a standard OnlyKey you then followed the guide [here](/ite) to load the ITE firmware in order to prepare for traveling. The ITE firmware is made for use in places where strong encryption may be controlled or banned.
-
-Q - Is having wipe mode set to "Full Wipe" an indicator that device is using plausible deniability?<br>
-A - We recommend that all users desiring the highest level of security enable full wipe. This is described in the user's guide and in the [International Travel Edition Guide](/ite) as it ensures that no data or meta data such as what version of firmware was loaded is available to an adversary.
-
-Q - Why not just give an adversary your self-destruct PIN?<br>
-A - If you are not concerned with plausible deniability then yes the self-destruct pin would be fine. The adversary would obviously know that this was intentional.
-
-Q - Wouldn't it be possible for an adversary to brute force the unknown primary profile PIN by trying 9 pins and then entering the known secondary profile pin?<br>
-A - When using a plausible deniability profile there is a counter that counts how many failed login attempts since the last primary profile login. You have a maximum of 20 failed attempts since the last successful login to the primary profile. Once that is reached the primary profile hash is deleted, essentially the primary profile is gone forever.
-
-:::warning "⚠️ Warning"
-This means if you have a plausible deniability profile you have to occasionally log into your standard profile. If you use the plausible deniability profile 20 times in a row the standard profile will no longer be accessible.
-:::
-
+- [International Travel Edition Guide](/ite) - the separate non-encrypted firmware build, retired at the same time.
+- [Wipe Mode](/usersguide#configurable-wipe-mode) - "Full Wipe" remains available for users who want the self-destruct PIN to erase everything.
