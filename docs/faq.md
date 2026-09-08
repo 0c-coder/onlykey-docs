@@ -79,10 +79,6 @@ In addition to on-device PIN security OnlyKey has functionality that smart cards
 
 There are a variety of hardware and software tokens out there. Some support FIDO U2F and others support Yubikey OTP and yet others support Google Authenticator (TOTP). Unfortunately for users not all websites support all of these. There is no standardization of two-factor support among websites so in order to log in using a token you often need multiple tokens and apps. OnlyKey set out to address this issue and make two-factor authentication usable by supporting the methods most commonly used by websites. Additionally, by combining this with password management we can provide users with a secure login with the touch of a button.
 
-## What specifically are the differences between the Standard Edition firmware and the International Travel Edition firmware?
-
-The International Travel Edition firmware was a feature limited version of the OnlyKey: a password manager that did not use encryption, for countries where encryption is banned or restricted. It is retired as of firmware 3.1.0 and there is one firmware edition. More information, including what to do with a device still running it, [here](/ite).
-
 ## What does entering the self destruct PIN do?
 
 Depending on what your wipe mode is set to it either wipes all sensitive data (erases your usernames, passwords, keys etc.) or if you are using full wipe mode it does a complete erase of the OnlyKey including sensitive data and all firmware (this requires reloading firmware).
