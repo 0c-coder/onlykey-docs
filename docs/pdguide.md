@@ -16,7 +16,7 @@ Reasons for retiring it: profile 2's usernames, passwords and URLs were stored i
 
 When you load firmware 3.1.0 or later, the device converts the profile the first time you unlock **profile 1**:
 
-1. Load the new firmware and enter your **primary** PIN once. The conversion runs during that unlock: profile 2's slot data is encrypted, its TOTP and challenge-response keys are re-keyed, and the second profile becomes a standard second profile. On a debug build the serial console prints `Migrating plausible-deniability profile 2 to a standard profile` and `Profile 2 migration complete`.
+1. Load the new firmware and enter your **primary** PIN once. The conversion runs during that unlock: profile 2's slot data is encrypted, its TOTP and challenge-response keys are re-keyed, and the second profile becomes a standard second profile.
 2. From then on your second PIN unlocks profile 2 exactly as before, with the same slot contents.
 
 Until that first primary-PIN unlock, the second PIN will **not** unlock profile 2 on the new firmware. If you cannot unlock profile 1, load the previous firmware, and everything is as it was.

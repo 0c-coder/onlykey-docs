@@ -576,13 +576,13 @@ Note: These additional keyboard layouts are available but cannot currently be se
 
 OnlyKey supports automatic generation of keys that may be used for SSH and PGP/GPG with the [OnlyKey Agent](/onlykey-agent).
 
-This setting chooses how you confirm each use of a derived key. Since firmware 3.1.0 the default is **Button Press Required**: a physical press on any of the three buttons completes the operation. **Challenge Code Required** asks for a 3 digit code instead (the agent prints the code; on a DUO each digit is 1-3); it is the stronger choice when the host might issue requests you did not initiate. A third value, **No Press**, exists for unattended use but is only honoured by firmware built with `OK_ALLOW_NO_PRESS`; production firmware refuses it. The setting can only be changed with the device in config mode, and the key itself never depends on it.
+This setting chooses how you confirm each use of a derived key. Since firmware 3.1.0 the default is **Button Press Required**: a physical press on any of the three buttons completes the operation. **Challenge Code Required** asks for a 3 digit code instead (the agent prints the code; on a DUO each digit is 1-3); it is the stronger choice when the host might issue requests you did not initiate. The setting can only be changed with the device in config mode, and the key itself never depends on it.
 
 ### Stored Key User Input Mode {#stored-challenge-mode}
 
 OnlyKey supports [import of existing OpenPGP keys](/importpgp#loading-keys) using the [OnlyKey app](/app). These keys once imported are securely stored in OnlyKey hardware and may be used to perform SSH or PGP/GPG operations with the [OnlyKey Agent](/onlykey-agent) or in the browser with the [OnlyKey WebCrypt](/webcrypt).
 
-The same three choices as the derived key setting apply, independently: Challenge Code Required, Button Press Required (default since firmware 3.1.0) and No Press (development firmware only). Config mode is required to change it.
+The same two choices as the derived key setting apply, independently: Challenge Code Required and Button Press Required (default since firmware 3.1.0). Config mode is required to change it.
 
 ### Web Derived Key User Input Mode {#web-derive-mode}
 

@@ -133,9 +133,8 @@ Displays the version of the OnlyKey firmware
 
 #### capabilities
 Asks the firmware what it supports (firmware 3.1.0 or later): firmware version and commit
-hashes, protocol version, supported key types, build flags (PQC, DUO, debug build, whether the
-"no press" user input mode is compiled in) and the user input modes each of derivedkeymode /
-storedkeymode / webderivemode accepts. Older firmware is reported as not supporting the report.
+hashes, protocol version, supported key types, device type (OnlyKey or DUO), post-quantum support and the
+user input modes each of derivedkeymode / storedkeymode / webderivemode accepts. Older firmware is reported as not supporting the report.
 
 #### wink
 OnlyKey flashes blue (winks), may be used for visual confirmation of connectivity
@@ -213,13 +212,13 @@ WARNING: Setting button's touch sensitivity lower than 5 is not recommended as t
 
 #### storedkeymode [num]
 User input required to use a stored key (RSA1-4, ECC1-16) for SSH/PGP
-0 = Challenge Code Required; 1 = Button Press Required (default); 2 = No Press (only on firmware built with `OK_ALLOW_NO_PRESS`, refused otherwise)
+0 = Challenge Code Required; 1 = Button Press Required (default)
 Device must be in config mode to change this setting.
 [More info](/usersguide#stored-challenge-mode)
 
 #### derivedkeymode [num]
 User input required to use a derived key (OnlyKey Agent SSH/PGP identities)
-0 = Challenge Code Required; 1 = Button Press Required (default); 2 = No Press (only on firmware built with `OK_ALLOW_NO_PRESS`, refused otherwise)
+0 = Challenge Code Required; 1 = Button Press Required (default)
 Device must be in config mode to change this setting.
 [More info](/usersguide#derived-challenge-mode)
 
